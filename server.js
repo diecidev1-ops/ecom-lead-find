@@ -1,5 +1,5 @@
 import express from 'express';
-import { randomUUID } from 'node:crypto';
+import { randomUUID, createHmac } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -15,6 +15,46 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 app.use(express.static(join(__dirname, 'public')));
+
+// --- Auth gate (protegge tutto se APP_PASSWORD è impostata) ---
+function authToken(password) {
+  return createHmac('sha256', password).update('lead-finder-auth').digest('hex');
+}
+
+function parseCookies(header) {
+  const out = {};
+  if (!header) return out;
+  for (const pair of header.split(';')) {
+    const [k, ...v] = pair.trim().split('=');
+    if (k) out[k.trim()] = decodeURIComponent(v.join('='));
+  }
+  return out;
+}
+
+app.post('/api/login', (req, res) => {
+  const appPw = process.env.APP_PASSWORD;
+  if (!appPw) return res.json({ ok: true });
+  const { password } = req.body || {};
+  if (password !== appPw) return res.status(401).json({ error: 'Password errata' });
+  const token = authToken(appPw);
+  res.setHeader('Set-Cookie', `lf_auth=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=2592000`);
+  res.json({ ok: true });
+});
+
+app.post('/api/logout', (_req, res) => {
+  res.setHeader('Set-Cookie', 'lf_auth=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0');
+  res.redirect(303, '/login.html');
+});
+
+app.use((req, res, next) => {
+  const appPw = process.env.APP_PASSWORD;
+  if (!appPw) return next();
+  if (req.path === '/login.html' || req.path === '/api/login') return next();
+  const cookies = parseCookies(req.headers.cookie);
+  if (cookies.lf_auth === authToken(appPw)) return next();
+  if (req.path.startsWith('/api/')) return res.status(401).json({ error: 'Non autenticato' });
+  res.redirect(303, '/login.html');
+});
 
 // Su Vercel ogni invocazione può essere un cold start: il DB si inizializza
 // lazy al primo request. In locale il top-level await lo fa subito.
