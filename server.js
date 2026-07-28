@@ -14,7 +14,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(express.static(join(__dirname, 'public')));
 
 // --- Auth gate (protegge tutto se APP_PASSWORD è impostata) ---
 function authToken(password) {
@@ -55,6 +54,8 @@ app.use((req, res, next) => {
   if (req.path.startsWith('/api/')) return res.status(401).json({ error: 'Non autenticato' });
   res.redirect(303, '/login.html');
 });
+
+app.use(express.static(join(__dirname, 'public')));
 
 // Su Vercel ogni invocazione può essere un cold start: il DB si inizializza
 // lazy al primo request. In locale il top-level await lo fa subito.
