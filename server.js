@@ -631,15 +631,12 @@ RISPONDI SOLO JSON VALIDO (no markdown no backtick):
     const maxTok = 3000;
 
     if (provider === 'openrouter') {
-      const content = [];
-      if (imageB64) content.push({ type: 'image_url', image_url: { url: `data:${imageMime};base64,${imageB64}` } });
-      content.push({ type: 'text', text: prompt });
       const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
         method: 'POST',
         headers: { 'content-type': 'application/json', authorization: `Bearer ${key}` },
         body: JSON.stringify({
-          model: 'meta-llama/llama-4-maverick:free',
-          messages: [{ role: 'user', content: hasVision ? content : prompt }],
+          model: 'inclusionai/ling-3.0-flash:free',
+          messages: [{ role: 'user', content: prompt }],
           max_tokens: maxTok,
         }),
       });
@@ -874,7 +871,7 @@ app.post('/api/settings/test-ai', async (req, res) => {
           authorization: `Bearer ${key}`,
         },
         body: JSON.stringify({
-          model: 'meta-llama/llama-4-maverick:free',
+          model: 'inclusionai/ling-3.0-flash:free',
           messages: [{ role: 'user', content: 'Rispondi solo "ok".' }],
           max_tokens: 10,
         }),
