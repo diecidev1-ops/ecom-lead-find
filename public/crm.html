@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lead Finder</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="crm.css">
+</head>
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__brand">
+      <span class="dot"></span>
+      <h1>Lead Finder</h1>
+    </div>
+    <nav class="sidebar__nav">
+      <div class="sidebar__section-label">Menu</div>
+      <a href="/" class="sidebar__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Home
+      </a>
+      <a href="/estrazione.html" class="sidebar__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Estrazione
+      </a>
+      <a href="/telegram.html" class="sidebar__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21.2 2.4a2.2 2.2 0 0 0-1 .2l-16.5 7.5a2.25 2.25 0 0 0 .1 4.2l4.2 1.3 1.3 4.2a2.25 2.25 0 0 0 4.2.1l7.5-16.5a2.25 2.25 0 0 0-1.8-3z"/><path d="M10 15L15 10"/></svg>
+        Telegram
+      </a>
+      <a href="/crm.html" class="sidebar__link active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        CRM
+      </a>
+      <div class="sidebar__section-label">Strumenti</div>
+      <a href="/profili.html" class="sidebar__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        Profili
+      </a>
+      <a href="/analytics.html" class="sidebar__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Analytics
+      </a>
+      <a href="/settings.html" class="sidebar__link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Impostazioni
+      </a>
+    </nav>
+    <button class="sidebar__theme" id="theme-toggle">
+      <svg class="theme-icon theme-icon--dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+      <svg class="theme-icon theme-icon--light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <span class="theme-label">Tema scuro</span>
+    </button>
+  </aside>
+  <div class="sidebar__overlay" id="sidebar-overlay"></div>
+
+  <div class="app">
+    <!-- Header -->
+    <header class="crm-header">
+      <div class="crm-header__left">
+        <button class="sidebar-toggle" id="sidebar-toggle" aria-label="Menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <div class="crm-header__title">
+          <h1>CRM <span class="crm-header__count" id="crm-header-count"></span></h1>
+        </div>
+      </div>
+      <div class="crm-header__center">
+        <div class="crm-search">
+          <svg class="crm-search__icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="crm-search__input" id="crm-global-search" placeholder="Cerca lead...">
+        </div>
+      </div>
+      <div class="crm-header__right">
+        <div class="fu-wrap" id="fu-wrap">
+          <button class="btn btn--ghost btn--sm fu-bell" id="btn-fu" title="Follow-up in attesa">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            <span class="fu-badge" id="fu-badge" hidden>0</span>
+          </button>
+          <div class="fu-panel" id="fu-panel" hidden>
+            <div class="fu-panel__head">
+              <div>
+                <div class="fu-panel__title">Follow-up in attesa</div>
+                <div class="fu-panel__sub" id="fu-panel-sub">Lead contattati da più di 3 giorni senza risposta</div>
+              </div>
+              <button class="modal__close" id="fu-close">&times;</button>
+            </div>
+            <div class="fu-panel__body" id="fu-panel-body"></div>
+          </div>
+        </div>
+        <a href="/analytics.html" class="btn btn--ghost btn--sm" id="btn-go-analytics" title="Vai alle analitiche">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Analitiche</span>
+        </a>
+        <button class="btn btn--ghost btn--sm" id="btn-open-icp" title="Definisci il tuo cliente ideale">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <span>Cliente ideale</span>
+        </button>
+        <button class="btn btn--ghost btn--sm" id="btn-toggle-filters">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+          <span>Filtri</span>
+        </button>
+        <button class="btn btn--ghost btn--sm" id="btn-csv-crm" disabled>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          <span>CSV</span>
+        </button>
+        <button class="btn btn--primary btn--sm" id="btn-open-add-modal">+ Aggiungi</button>
+      </div>
+    </header>
+
+    <main class="main-content crm-main">
+
+      <!-- KPI timeframe -->
+      <div class="kpi-tf">
+        <span class="kpi-tf__label">Confronto periodo</span>
+        <div class="kpi-tf__pills" id="kpi-tf">
+          <button class="kpi-tf__pill" data-days="1">24h</button>
+          <button class="kpi-tf__pill active" data-days="7">7 giorni</button>
+          <button class="kpi-tf__pill" data-days="14">14 giorni</button>
+          <button class="kpi-tf__pill" data-days="30">30 giorni</button>
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="crm-kpi" id="crm-kpi">
+        <button class="kpi-card active" data-tab="tutti">
+          <div class="kpi-card__label">Lead totali</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-tutti">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-tutti" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-tutti"></div>
+        </button>
+        <button class="kpi-card kpi-card--nuovo" data-tab="nuovo">
+          <div class="kpi-card__label">Nuovi</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-nuovo">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-nuovo" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-nuovo"></div>
+        </button>
+        <button class="kpi-card kpi-card--da_contattare" data-tab="da contattare">
+          <div class="kpi-card__label">Da contattare</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-da_contattare">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-da_contattare" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-da_contattare"></div>
+        </button>
+        <button class="kpi-card kpi-card--contattato" data-tab="contattato">
+          <div class="kpi-card__label">Contattati</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-contattato">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-contattato" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-contattato"></div>
+        </button>
+        <button class="kpi-card kpi-card--interessato" data-tab="interessato">
+          <div class="kpi-card__label">Interessati</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-interessato">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-interessato" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-interessato"></div>
+        </button>
+        <button class="kpi-card kpi-card--cliente" data-tab="cliente">
+          <div class="kpi-card__label">Clienti</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-cliente">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-cliente" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-cliente"></div>
+        </button>
+        <button class="kpi-card kpi-card--scartato" data-tab="scartato">
+          <div class="kpi-card__label">Scartati</div>
+          <div class="kpi-card__row">
+            <div class="kpi-card__value" id="kpi-scartato">0</div>
+            <svg class="kpi-card__spark" id="kpi-spark-scartato" viewBox="0 0 80 28" preserveAspectRatio="none"></svg>
+          </div>
+          <div class="kpi-card__delta" id="kpi-delta-scartato"></div>
+        </button>
+      </div>
+
+      <!-- Analyze All -->
+      <div class="analyze-all-bar" id="analyze-all-bar">
+        <button class="btn btn--primary btn--sm" id="btn-analyze-all">🤖 Analizza tutti</button>
+        <div class="analyze-all-progress" id="analyze-all-progress" hidden>
+          <div class="analyze-all-progress__info">
+            <span id="analyze-all-label">0 / 50</span>
+            <span id="analyze-all-pct">0%</span>
+          </div>
+          <div class="analyze-all-progress__track">
+            <div class="analyze-all-progress__fill" id="analyze-all-fill" style="width:0%"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bulk actions bar (hidden by default) -->
+      <div class="crm-bulk" id="crm-bulk" hidden>
+        <span class="crm-bulk__count" id="bulk-count"></span>
+        <button class="btn btn--ghost btn--sm" id="bulk-status-btn" style="position:relative">Cambia stato</button>
+        <button class="btn btn--ghost btn--sm" id="bulk-delete-btn">Elimina</button>
+        <button class="btn btn--ghost btn--sm" id="bulk-deselect-btn">Deseleziona</button>
+      </div>
+
+      <!-- Filter panel (hidden) -->
+      <div class="crm-filters" id="crm-filters" hidden>
+        <div class="crm-filters__grid">
+          <div class="crm-filter-field">
+            <label>Piattaforma</label>
+            <select id="f-platform" class="filter-input"><option value="">Tutte</option><option value="instagram">Instagram</option><option value="tiktok">TikTok</option><option value="facebook">Facebook</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Stato</label>
+            <select id="f-status" class="filter-input"><option value="">Tutti</option><option value="nuovo">Nuovo</option><option value="da contattare">Da contattare</option><option value="contattato">Contattato</option><option value="interessato">Interessato</option><option value="cliente">Cliente</option><option value="scartato">Scartato</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Sesso</label>
+            <select id="f-gender" class="filter-input"><option value="">Tutti</option><option value="M">M</option><option value="F">F</option><option value="Altro">Altro</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Livello economico</label>
+            <select id="f-economic" class="filter-input"><option value="">Tutti</option><option value="basso">Basso</option><option value="medio">Medio</option><option value="medio-alto">Medio-alto</option><option value="alto">Alto</option><option value="luxury">Luxury</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Visibilità</label>
+            <select id="f-visibility" class="filter-input"><option value="">Tutti</option><option value="public">Pubblico</option><option value="private">Privato</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Tipo</label>
+            <select id="f-type" class="filter-input"><option value="">Tutti</option><option value="business">Pagina</option><option value="personal">Persona</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Con email</label>
+            <select id="f-email" class="filter-input"><option value="">Tutti</option><option value="yes">Sì</option><option value="no">No</option></select>
+          </div>
+          <div class="crm-filter-field">
+            <label>Paese</label>
+            <input type="text" id="f-country" class="filter-input" placeholder="es. Italia">
+          </div>
+          <div class="crm-filter-field">
+            <label>Lingua</label>
+            <input type="text" id="f-language" class="filter-input" placeholder="es. Italiano">
+          </div>
+          <div class="crm-filter-field">
+            <label>Professione</label>
+            <input type="text" id="f-profession" class="filter-input" placeholder="es. Designer">
+          </div>
+          <div class="crm-filter-field">
+            <label>Interessi</label>
+            <input type="text" id="f-interests" class="filter-input" placeholder="es. moda">
+          </div>
+          <div class="crm-filter-field">
+            <label>Follower min</label>
+            <input type="number" id="f-followers-min" class="filter-input" placeholder="0" min="0">
+          </div>
+          <div class="crm-filter-field">
+            <label>Follower max</label>
+            <input type="number" id="f-followers-max" class="filter-input" placeholder="∞" min="0">
+          </div>
+          <div class="crm-filter-field">
+            <label>Score min</label>
+            <input type="number" id="f-score-min" class="filter-input" placeholder="0" min="0">
+          </div>
+        </div>
+        <div style="margin-top:10px;text-align:right">
+          <button class="btn btn--ghost btn--sm" id="btn-reset-filters">Reset filtri</button>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="crm-toolbar" id="crm-toolbar">
+        <div class="crm-toolbar__left">
+          <span class="crm-toolbar__info" id="crm-toolbar-info"></span>
+        </div>
+        <div class="crm-toolbar__right">
+          <select class="filter-input" id="crm-per-page" style="width:auto;font-size:12px;padding:4px 8px">
+            <option value="25">25 / pagina</option>
+            <option value="50" selected>50 / pagina</option>
+            <option value="100">100 / pagina</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Skeleton loader -->
+      <div class="crm-table-wrap" id="crm-skeleton">
+        <div class="crm-skeleton">
+          <div class="skeleton-row"><div class="skeleton-cell sk-av"></div><div class="skeleton-cell sk-nm"></div><div class="skeleton-cell sk-tg"></div><div class="skeleton-cell sk-n2"></div><div class="skeleton-cell sk-bd"></div></div>
+          <div class="skeleton-row"><div class="skeleton-cell sk-av"></div><div class="skeleton-cell sk-nm"></div><div class="skeleton-cell sk-tg"></div><div class="skeleton-cell sk-n2"></div><div class="skeleton-cell sk-bd"></div></div>
+          <div class="skeleton-row"><div class="skeleton-cell sk-av"></div><div class="skeleton-cell sk-nm"></div><div class="skeleton-cell sk-tg"></div><div class="skeleton-cell sk-n2"></div><div class="skeleton-cell sk-bd"></div></div>
+          <div class="skeleton-row"><div class="skeleton-cell sk-av"></div><div class="skeleton-cell sk-nm"></div><div class="skeleton-cell sk-tg"></div><div class="skeleton-cell sk-n2"></div><div class="skeleton-cell sk-bd"></div></div>
+          <div class="skeleton-row"><div class="skeleton-cell sk-av"></div><div class="skeleton-cell sk-nm"></div><div class="skeleton-cell sk-tg"></div><div class="skeleton-cell sk-n2"></div><div class="skeleton-cell sk-bd"></div></div>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div class="crm-empty" id="crm-empty" hidden>
+        <div class="crm-empty__icon">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Nessun lead nel CRM</h3>
+        <p>Vai nella sezione Estrazione, esegui un job e premi "Salva nel CRM", oppure aggiungi un lead manualmente.</p>
+        <button class="btn btn--primary btn--sm" id="btn-empty-add">+ Aggiungi lead</button>
+      </div>
+
+      <!-- Table -->
+      <div class="crm-table-wrap" id="crm-table-wrap" hidden>
+        <table class="crm-table" id="crm-table">
+          <thead>
+            <tr>
+              <th class="th-check"><input type="checkbox" class="crm-check" id="check-all"></th>
+              <th>Account</th>
+              <th>Piattaforma</th>
+              <th>Email</th>
+              <th>Follower</th>
+              <th>Tipo</th>
+              <th>Visibilità</th>
+              <th>Stato</th>
+              <th class="th-actions"></th>
+            </tr>
+          </thead>
+          <tbody id="crm-body"></tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="crm-pagination" id="crm-pagination" hidden>
+        <span class="crm-pagination__info" id="page-info"></span>
+        <div class="crm-pagination__btns">
+          <button class="btn btn--ghost btn--sm" id="btn-prev" disabled>← Precedente</button>
+          <button class="btn btn--ghost btn--sm" id="btn-next" disabled>Successivo →</button>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <!-- Add lead modal -->
+  <div class="modal-overlay" id="modal-overlay" hidden></div>
+  <div class="modal" id="add-modal" hidden>
+    <div class="modal__head">
+      <h3>Aggiungi lead</h3>
+      <button class="modal__close" id="modal-close">&times;</button>
+    </div>
+    <div class="modal__body">
+      <div class="modal-field">
+        <label>Piattaforma</label>
+        <select id="add-crm-platform" class="filter-input">
+          <option value="instagram">Instagram</option>
+          <option value="tiktok">TikTok</option>
+          <option value="facebook">Facebook</option>
+        </select>
+      </div>
+      <div class="modal-field">
+        <label>Username o link profilo</label>
+        <input type="text" id="add-crm-username" class="filter-input" placeholder="es. @nome o https://instagram.com/nome">
+      </div>
+      <div class="modal-field">
+        <label>Nome <span class="opt">(opzionale)</span></label>
+        <input type="text" id="add-crm-name" class="filter-input" placeholder="es. Marco Rossi">
+      </div>
+      <div class="modal-field">
+        <label>Email <span class="opt">(opzionale)</span></label>
+        <input type="text" id="add-crm-email" class="filter-input" placeholder="es. nome@email.com">
+      </div>
+      <div class="enrich-progress" id="enrich-progress" hidden>
+        <div class="enrich-progress__bar">
+          <div class="enrich-progress__fill" id="enrich-progress-fill"></div>
+        </div>
+        <span class="enrich-progress__label" id="enrich-progress-label"></span>
+      </div>
+    </div>
+    <div class="modal__foot">
+      <button class="btn btn--ghost btn--sm" id="modal-cancel">Annulla</button>
+      <button class="btn btn--primary btn--sm" id="btn-add-crm-lead">Aggiungi e arricchisci</button>
+    </div>
+  </div>
+
+  <!-- ICP (Ideal Customer Profile) modal -->
+  <div class="modal modal--wide" id="icp-modal" hidden>
+    <div class="modal__head">
+      <div>
+        <h3>Cliente ideale</h3>
+        <div class="modal__sub">L'AI userà questi parametri per calcolare quanto ogni lead combacia con il tuo target.</div>
+      </div>
+      <button class="modal__close" id="icp-close">&times;</button>
+    </div>
+    <div class="modal__body">
+      <div class="modal-field">
+        <label>Descrizione del cliente ideale</label>
+        <textarea id="icp-description" class="filter-input" rows="4" placeholder="Es. Titolari di piccoli e-commerce di moda in Italia, dai 25 ai 45 anni, con follower tra 5K e 100K, orientati al lusso accessibile."></textarea>
+      </div>
+      <div class="modal-grid modal-grid--2">
+        <div class="modal-field">
+          <label>Età minima</label>
+          <input type="number" id="icp-age-min" class="filter-input" min="13" max="90" placeholder="es. 25">
+        </div>
+        <div class="modal-field">
+          <label>Età massima</label>
+          <input type="number" id="icp-age-max" class="filter-input" min="13" max="90" placeholder="es. 45">
+        </div>
+      </div>
+      <div class="modal-grid modal-grid--2">
+        <div class="modal-field">
+          <label>Sesso</label>
+          <select id="icp-gender" class="filter-input">
+            <option value="qualsiasi">Qualsiasi</option>
+            <option value="M">Uomo</option>
+            <option value="F">Donna</option>
+          </select>
+        </div>
+        <div class="modal-field">
+          <label>Tipo account</label>
+          <select id="icp-business" class="filter-input">
+            <option value="qualsiasi">Qualsiasi</option>
+            <option value="business">Solo business</option>
+            <option value="personale">Solo personale</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Paesi / città target</label>
+        <input type="text" id="icp-countries" class="filter-input" placeholder="es. Italia, Milano, Roma, Barcellona">
+      </div>
+      <div class="modal-field">
+        <label>Lingue</label>
+        <input type="text" id="icp-languages" class="filter-input" placeholder="es. italiano, inglese">
+      </div>
+      <div class="modal-field">
+        <label>Interessi</label>
+        <input type="text" id="icp-interests" class="filter-input" placeholder="es. moda, fitness, viaggi, tecnologia">
+      </div>
+      <div class="modal-field">
+        <label>Professioni</label>
+        <input type="text" id="icp-professions" class="filter-input" placeholder="es. imprenditore, creator, e-commerce owner">
+      </div>
+      <div class="modal-grid modal-grid--2">
+        <div class="modal-field">
+          <label>Follower min</label>
+          <input type="number" id="icp-followers-min" class="filter-input" min="0" placeholder="es. 5000">
+        </div>
+        <div class="modal-field">
+          <label>Follower max</label>
+          <input type="number" id="icp-followers-max" class="filter-input" min="0" placeholder="es. 100000">
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Livello economico <span class="opt">(seleziona uno o più)</span></label>
+        <div class="ms-dd" id="icp-economic-dd">
+          <button type="button" class="ms-dd__btn" id="icp-economic-btn">
+            <span class="ms-dd__label" id="icp-economic-label">Qualsiasi</span>
+            <span class="ms-dd__count" id="icp-economic-count" hidden>0</span>
+            <svg class="ms-dd__chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="ms-dd__panel" id="icp-economic-panel" hidden>
+            <label class="ms-dd__opt"><input type="checkbox" value="basso"><span class="ms-dd__box"></span><span class="ms-dd__opt-text">Basso</span></label>
+            <label class="ms-dd__opt"><input type="checkbox" value="medio"><span class="ms-dd__box"></span><span class="ms-dd__opt-text">Medio</span></label>
+            <label class="ms-dd__opt"><input type="checkbox" value="medio-alto"><span class="ms-dd__box"></span><span class="ms-dd__opt-text">Medio-alto</span></label>
+            <label class="ms-dd__opt"><input type="checkbox" value="alto"><span class="ms-dd__box"></span><span class="ms-dd__opt-text">Alto</span></label>
+            <label class="ms-dd__opt"><input type="checkbox" value="luxury"><span class="ms-dd__box"></span><span class="ms-dd__opt-text">Luxury</span></label>
+            <div class="ms-dd__foot">
+              <button type="button" class="ms-dd__act" id="icp-economic-all">Seleziona tutti</button>
+              <button type="button" class="ms-dd__act" id="icp-economic-none">Deseleziona</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-field">
+        <label>Da evitare <span class="opt">(anti-target)</span></label>
+        <textarea id="icp-avoid" class="filter-input" rows="2" placeholder="Es. account fake, minorenni, profili con meno di 1000 follower, contenuti offensivi."></textarea>
+      </div>
+    </div>
+    <div class="modal__foot">
+      <button class="btn btn--ghost btn--sm" id="icp-cancel">Annulla</button>
+      <button class="btn btn--primary btn--sm" id="icp-save">Salva</button>
+    </div>
+  </div>
+
+  <!-- Bulk status dropdown (created dynamically) -->
+
+  <!-- Toasts -->
+  <div class="toast-wrap" id="toast-wrap"></div>
+
+  <script src="sidebar.js"></script>
+  <script src="crm.js"></script>
+</body>
+</html>
