@@ -638,7 +638,7 @@ RISPONDI SOLO JSON VALIDO (no markdown no backtick):
         method: 'POST',
         headers: { 'content-type': 'application/json', authorization: `Bearer ${key}` },
         body: JSON.stringify({
-          model: hasVision ? 'nvidia/nemotron-nano-12b-v2-vl:free' : 'nvidia/nemotron-3-ultra-550b-a55b:free',
+          model: 'meta-llama/llama-4-maverick:free',
           messages: [{ role: 'user', content: hasVision ? content : prompt }],
           max_tokens: maxTok,
         }),
@@ -874,7 +874,7 @@ app.post('/api/settings/test-ai', async (req, res) => {
           authorization: `Bearer ${key}`,
         },
         body: JSON.stringify({
-          model: 'nvidia/nemotron-3-ultra-550b-a55b:free',
+          model: 'meta-llama/llama-4-maverick:free',
           messages: [{ role: 'user', content: 'Rispondi solo "ok".' }],
           max_tokens: 10,
         }),
