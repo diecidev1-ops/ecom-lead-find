@@ -157,3 +157,4 @@ Servono a evitare che un errore di battitura ti bruci il credito Apify. Si cambi
 - Il CSV è protetto da formula injection e ha il BOM UTF-8 (Excel legge gli accenti correttamente).
 - Se riavvii il server durante un job, il job viene marcato come interrotto: la run su Apify
   potrebbe però continuare. Controlla su console.apify.com.
+- Deploy serverless su Vercel con Supabase (Postgres) per la persistenza.
