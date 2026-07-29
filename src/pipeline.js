@@ -557,6 +557,7 @@ export async function handleApifyWebhook(runRecord, webhookData, { token, webhoo
 
   const actors = ACTORS[state.platform];
   const items = datasetId ? await fetchDatasetItems(datasetId, { token }) : [];
+  console.log(`[pipeline] stage=${stage} items=${items.length} datasetId=${datasetId} sample=${JSON.stringify(items[0] ?? {}).slice(0, 300)}`);
 
   // Processa i risultati in base alla fase
   if (stage === 'discovery:posts') {

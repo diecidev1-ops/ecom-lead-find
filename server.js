@@ -232,6 +232,7 @@ app.post('/api/webhooks/apify', async (req, res) => {
   res.status(200).json({ ok: true });
 
   const whUrl = `${webhookBaseUrl(req)}/api/webhooks/apify`;
+  console.log(`[webhook] run=${runRecord.run_id} stage=${runRecord.stage} status=${req.body?.resource?.status} dataset=${req.body?.resource?.defaultDatasetId} whUrl=${whUrl}`);
 
   try {
     await handleApifyWebhook(runRecord, req.body, { token, webhookUrl: whUrl });
