@@ -26,11 +26,10 @@ export const ACTORS = {
       }),
     },
     followers: {
-      id: 'coderx~instagram-followers-following-scraper-no-cookies-login',
+      id: 'datadoping~instagram-followers-scraper',
       buildInput: ({ handles, limits }) => ({
-        username: handles[0],
-        scrape_type: 'followers',
-        max_items: Math.max(50, limits.followersPerProfile),
+        usernames: handles,
+        max_count: limits.followersPerProfile,
       }),
     },
     // apify/instagram-profile-scraper -> arricchimento (bio, categoria, contatti)
@@ -208,10 +207,10 @@ export const PLATFORM_DEFAULTS = {
 
 // Stime di costo MOLTO grezze, servono solo come ordine di grandezza.
 // I prezzi reali degli actor cambiano: verifica sempre sulla pagina dell'actor.
-// perThousandFollowers riflette coderx ($0.0011/risultato).
+// perThousandFollowers riflette datadoping ($0.0012/risultato).
 export const COST_HINTS = {
   perThousandPosts: 2.3,
   perThousandComments: 2.3,
-  perThousandFollowers: 1.1,
+  perThousandFollowers: 1.2,
   perThousandProfiles: 2.3,
 };
