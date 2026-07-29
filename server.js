@@ -77,7 +77,7 @@ app.use(async (req, res, next) => {
 
 // URL base per i webhook Apify: costruito dal VERCEL_URL o dal HOST locale.
 function webhookBaseUrl(req) {
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  if (process.env.WEBHOOK_BASE_URL) return process.env.WEBHOOK_BASE_URL;
   const host = req.get('host') || `localhost:${PORT}`;
   const proto = req.get('x-forwarded-proto') || 'http';
   return `${proto}://${host}`;
