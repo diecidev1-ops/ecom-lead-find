@@ -47,6 +47,7 @@ async function ensureSchema() {
       error          TEXT,
       pipeline_state TEXT
     );
+    ALTER TABLE jobs ADD COLUMN IF NOT EXISTS pipeline_state TEXT;
 
     -- Instrada i webhook di Apify al job/stage/batch corretto: ogni run avviato
     -- viene registrato qui prima di partire, il webhook lo cerca per run_id.
