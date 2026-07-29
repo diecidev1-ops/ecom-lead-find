@@ -48,7 +48,7 @@ app.post('/api/logout', (_req, res) => {
 app.use((req, res, next) => {
   const appPw = process.env.APP_PASSWORD;
   if (!appPw) return next();
-  if (req.path === '/login.html' || req.path === '/api/login') return next();
+  if (req.path === '/login.html' || req.path === '/api/login' || req.path === '/api/webhooks/apify') return next();
   const cookies = parseCookies(req.headers.cookie);
   if (cookies.lf_auth === authToken(appPw)) return next();
   if (req.path.startsWith('/api/')) return res.status(401).json({ error: 'Non autenticato' });
