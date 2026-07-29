@@ -7,11 +7,12 @@ const api = async (path, opts) => {
 };
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
-const platformLabels = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook' };
+const platformLabels = { instagram: 'Instagram', tiktok: 'TikTok', facebook: 'Facebook', telegram: 'Telegram' };
 const platformUrls = {
   instagram: u => `https://www.instagram.com/${u}/`,
   tiktok: u => `https://www.tiktok.com/@${u}`,
   facebook: u => u.startsWith('http') ? u : `https://www.facebook.com/${u}`,
+  telegram: u => u.startsWith('http') ? u : `https://t.me/${u}`,
 };
 
 let profiles = [];
