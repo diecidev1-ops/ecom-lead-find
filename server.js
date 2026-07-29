@@ -599,6 +599,13 @@ REGOLE FINALI SULL'ETÀ:
 - Sesso: da nome, foto, pronomi.
 - Paese: se nella bio c'è una città (es. Milano, Roma, Napoli, London, Paris, Barcelona...) il campo "country" DEVE essere "NomeCittà, CodicePaese" (es. "Milano, IT", "London, UK", "Paris, FR", "Barcelona, ES"). Se non c'è città ma c'è una lingua nelle caption, deduci il paese dalla lingua.
 - Lingua: lingua delle caption o della bio.
+- Livello economico: DEVI sempre compilare "economic_level" con uno dei valori (basso/medio/medio-alto/alto/luxury), non restituire null. Segnali da usare:
+  - "luxury": brand di lusso (Gucci, LV, Rolex), auto premium, resort 5 stelle, yacht, jet privati, ville
+  - "alto": viaggi frequenti, ristoranti costosi, professioni ad alto reddito (medico, avvocato, CEO, imprenditore), zona residenziale prestigiosa
+  - "medio-alto": lifestyle curato, viaggi periodici, professione qualificata, contenuti professionali
+  - "medio": stile di vita normale, studente universitario, lavoro dipendente, nessun segnale di lusso né di disagio
+  - "basso": segnali espliciti di difficoltà economica, lavori precari dichiarati
+  Se non ci sono segnali chiari, usa "medio" come default (non null).
 - Score 0-100 come lead commerciale. Grade: S(90-100) A(75-89) B(55-74) C(35-54) D(0-34).
 - Breakdown: valuta 10 dimensioni ciascuna 0-100.
 - Probabilità: stima risposta e conversione realisticamente.
