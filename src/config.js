@@ -25,17 +25,12 @@ export const ACTORS = {
         resultsLimit: limits.commentsPerPost,
       }),
     },
-    // Nessun actor ufficiale Apify per le liste follower: questo e' di terze parti,
-    // ma e' il piu' collaudato (235k run) e il piu' economico ($0.00085/risultato).
-    // Soprattutto: ha resultsLimit VERO nell'input, quindi non paghi dati che poi butti.
-    // ATTENZIONE: la chiave e' "Account" con la A maiuscola (PascalCase), verificata
-    // sulla doc dell'actor. Non e' un typo.
     followers: {
-      id: 'scraping_solutions~instagram-scraper-followers-following-no-cookies',
+      id: 'coderx~instagram-followers-following-scraper-no-cookies-login',
       buildInput: ({ handles, limits }) => ({
-        Account: handles,
-        resultsLimit: Math.max(50, limits.followersPerProfile), // l'actor accetta 50-30000
-        dataToScrape: 'Followers',
+        username: handles[0],
+        scrape_type: 'followers',
+        max_items: Math.max(50, limits.followersPerProfile),
       }),
     },
     // apify/instagram-profile-scraper -> arricchimento (bio, categoria, contatti)
@@ -213,10 +208,10 @@ export const PLATFORM_DEFAULTS = {
 
 // Stime di costo MOLTO grezze, servono solo come ordine di grandezza.
 // I prezzi reali degli actor cambiano: verifica sempre sulla pagina dell'actor.
-// perThousandFollowers riflette scraping_solutions ($0.00085/risultato).
+// perThousandFollowers riflette coderx ($0.0011/risultato).
 export const COST_HINTS = {
   perThousandPosts: 2.3,
   perThousandComments: 2.3,
-  perThousandFollowers: 0.85,
+  perThousandFollowers: 1.1,
   perThousandProfiles: 2.3,
 };
