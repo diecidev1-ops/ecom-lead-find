@@ -28,12 +28,7 @@ function buildPayload() {
   return {
     platform: getPlatform(),
     handles: getHandles(),
-    sources: getPlatform() === 'tiktok'
-      ? ['comments']
-      : [
-          ...($('src-followers').checked ? ['followers'] : []),
-          ...($('src-comments').checked ? ['comments'] : []),
-        ],
+    sources: [getPlatform() === 'tiktok' ? 'comments' : 'followers'],
     limits: { maxLeads: Number($('maxLeads').value) || 120 },
     filters: {
       onlyBusiness: $('onlyBusiness').checked,
