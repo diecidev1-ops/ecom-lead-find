@@ -23,7 +23,6 @@ function updateSourceUI() {
   $('tg-members-limit-row').hidden = !mem;
   $('tg-messages-limit-row').hidden = !msg;
   $('tg-deep-wrap').hidden = !mem;
-  $('tg-plan-hint').hidden = !msg;
 }
 
 // ---- Job dropdown ----
