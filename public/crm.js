@@ -1005,9 +1005,15 @@ function hideProgress() {
   $('enrich-progress-fill').style.width = '0%';
 }
 
+function updateAddBtnLabel() {
+  const p = $('add-crm-platform').value;
+  $('btn-add-crm-lead').textContent = p === 'telegram' ? 'Aggiungi' : 'Aggiungi e arricchisci';
+}
+$('add-crm-platform').addEventListener('change', updateAddBtnLabel);
+
 $('add-crm-username').addEventListener('input', () => {
   const { platform } = parseProfileInput($('add-crm-username').value);
-  if (platform) $('add-crm-platform').value = platform;
+  if (platform) { $('add-crm-platform').value = platform; updateAddBtnLabel(); }
 });
 
 $('btn-add-crm-lead').addEventListener('click', async () => {
@@ -1054,7 +1060,7 @@ $('btn-add-crm-lead').addEventListener('click', async () => {
     toast('Errore: ' + err.message, 'err');
   } finally {
     btn.disabled = false;
-    btn.textContent = 'Aggiungi e arricchisci';
+    updateAddBtnLabel();
   }
 });
 

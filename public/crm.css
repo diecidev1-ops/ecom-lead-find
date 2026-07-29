@@ -9,7 +9,7 @@
 .crm-header__left { display:flex; align-items:center; gap:14px; flex-shrink:0; }
 .crm-header__title h1 { font-size:24px; font-weight:700; margin:0; color:var(--text); letter-spacing:-.02em; }
 .crm-header__count { font-size:14px; color:var(--muted); font-weight:400; margin-left:8px; }
-.crm-header__center { flex:1; max-width:460px; margin:0 auto; }
+.crm-header__center { flex:1; max-width:520px; }
 .crm-header__right { display:flex; align-items:center; gap:10px; flex-shrink:0; }
 
 /* Search */
