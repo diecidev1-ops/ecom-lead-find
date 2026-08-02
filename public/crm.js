@@ -558,49 +558,6 @@ $('crm-body').addEventListener('click', async (e) => {
   } finally { aiBtn.disabled = false; }
 });
 
-// ─── Analyze All ───
-$('btn-analyze-all').addEventListener('click', async () => {
-  const btn = $('btn-analyze-all');
-  const progressWrap = $('analyze-all-progress');
-  const label = $('analyze-all-label');
-  const pctEl = $('analyze-all-pct');
-  const fill = $('analyze-all-fill');
-
-  const leads = leadsData.slice(0, 50);
-  const total = leads.length;
-  if (!total) { toast('Nessun lead da analizzare', 'err'); return; }
-
-  btn.disabled = true;
-  btn.textContent = '⏳ Analisi in corso...';
-  progressWrap.hidden = false;
-  fill.className = 'analyze-all-progress__fill';
-  let done = 0, errors = 0;
-
-  function updateProgress() {
-    const pct = Math.round((done / total) * 100);
-    fill.style.width = pct + '%';
-    label.textContent = `${done} / ${total}`;
-    pctEl.textContent = pct + '%';
-  }
-  updateProgress();
-
-  for (const lead of leads) {
-    try {
-      const data = await api(`/api/crm/leads/${lead.id}/analyze`, { method: 'POST' });
-      if (data.fields) Object.assign(lead, data.fields);
-      if (data.analysis) lead.ai_analysis = data.analysis;
-    } catch { errors++; }
-    done++;
-    updateProgress();
-  }
-
-  fill.classList.add(errors === 0 ? 'analyze-all-progress__fill--done' : 'analyze-all-progress__fill--err');
-  btn.disabled = false;
-  btn.textContent = '🤖 Analizza tutti';
-  render();
-  toast(errors ? `Analisi completata: ${done - errors} ok, ${errors} errori` : `Analisi completata: ${done} lead analizzati`);
-});
-
 // ─── Checkbox selection ───
 $('crm-body').addEventListener('change', (e) => {
   const cb = e.target.closest('.row-check');
